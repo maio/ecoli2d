@@ -1,2 +1,3 @@
 * Links
   [[http://www.gamedev.net/community/forums/topic.asp%3Ftopic_id%3D230071][GameDev forum thread]]
+  [[http://books.google.cz/books%3Fid%3DWGpL6Sk9qNAC&lpg%3DPA86&dq%3DReal-Time%20Collision%20Detection%20AABB&pg%3DPA78#v%3Donepage&q%3DReal-Time%20Collision%20Detection%20AABB&f%3Dfalse][Real-Time Collision Detection (AABB)]]

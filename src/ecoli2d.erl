@@ -1,13 +1,35 @@
 -module(ecoli2d).
 
 -include_lib("eunit/include/eunit.hrl").
+-include("ecoli2d.hrl").
 
-collide({aabb, _, _, _, _}, {aabb, _, _, _, _}) ->
-    false.
+
+collide(#aabb{top=T1, bottom=B1, left=L1, right=R1},
+        #aabb{top=T2, bottom=B2, left=L2, right=R2}) ->
+    if
+        T1 < B2 -> false;
+        B1 > T2 -> false;
+        L1 > R2 -> false;
+        R1 < L2 -> false;
+        true -> true
+    end.
 
 %% tests - http://www.erlang.org/doc/apps/eunit/chapter.html
+
 simple_test() ->
-    Object1 = {aabb, 0, 0, 0, 0},
-    Object2 = {aabb, 1, 1, 1, 1},
-    ?assertMatch(false, collide(Object1, Object2)).
+    Object1 = #aabb{
+        top = 3, bottom = 0,
+        left = 0, right = 3
+    },
+    Object2 = #aabb{
+        top = 5, bottom = 2,
+        left = 2, right = 5
+    },
+    Object3 = #aabb{
+        top = 7, bottom = 4,
+        left = 0, right = 3
+    },
+    ?assertMatch(true, collide(Object1, Object1)),
+    ?assertMatch(true, collide(Object1, Object2)),
+    ?assertMatch(false, collide(Object1, Object3)).
 
