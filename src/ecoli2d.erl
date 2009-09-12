@@ -30,7 +30,14 @@ simple_test() ->
         top = 7, bottom = 4,
         left = 0, right = 3
     },
+    Object4 = #aabb{
+        left = 10,
+        right = 15,
+        top = 113.2997314453124,
+        bottom = 33.2997314453124
+    },
     ?assertMatch(true, collide(Object1, Object1)),
     ?assertMatch(true, collide(Object1, Object2)),
-    ?assertMatch(false, collide(Object1, Object3)).
+    ?assertMatch(false, collide(Object1, Object3)),
+    ?assertMatch(true, collide(Object4, Object4)).
 

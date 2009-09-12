@@ -4,8 +4,9 @@
 }).
 
 -record(aabb, {
-    top,
     left,
     right,
+    top,
     bottom
 }).
+
