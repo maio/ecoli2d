@@ -1,8 +1,9 @@
 -module(ecoli2d).
 
+-export([collide/2]).
+
 -include_lib("eunit/include/eunit.hrl").
 -include("ecoli2d.hrl").
-
 
 collide(#aabb{top=T1, bottom=B1, left=L1, right=R1},
         #aabb{top=T2, bottom=B2, left=L2, right=R2}) ->
